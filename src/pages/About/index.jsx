@@ -1,17 +1,16 @@
 import { Box, Typography } from "@mui/material"
 
 
-
-const Home = () => {
+const About = () => {
     return (
         <Box>
             <Box m={2}>
                 <Typography align="center" fontWeight='600' variant='h4' component='h1'>
-                    Home Page
+                    About
                 </Typography>
             </Box>
         </Box>
     )
 }
 
-export default Home
+export default About;
