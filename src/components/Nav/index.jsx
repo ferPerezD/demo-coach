@@ -56,7 +56,7 @@ const NavBar = () => {
                 textDecoration: 'none',
                 }}
             >
-                AppLogo
+                Logo
             </Typography>
          
 
@@ -119,9 +119,9 @@ const NavBar = () => {
               textDecoration: 'none',
             }}
           >
-            AppLogo
+            Logo
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:"center"  }}>
             {pages.map((page) => (
               <Link key={page} to={`/${page}`} style={{textDecoration: 'none', color: 'white'}}>
                   <Button
@@ -136,7 +136,7 @@ const NavBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, paddingLeft: '1.9rem' }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
