@@ -1,8 +1,7 @@
-import { Box, Typography, ImageList, ImageListItem, ImageListItemBar } from "@mui/material"
+import { Box, Typography, ImageList, ImageListItem } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import axios from 'axios'
 import { Link } from "react-router-dom"
-import { Context } from "../../context/context"
 
 
 const Home = () => {
