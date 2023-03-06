@@ -3,6 +3,7 @@ import { Box } from "@mui/system"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+import Paragraph from "../../components/Paragraph"
 
 
 
@@ -12,7 +13,11 @@ const Details = () => {
         title: '',
         image_id: '',
         exhibition_history: '',
-        artist_title: ''
+        artist_title: '',
+        dimensions: '',
+        provenance_text: '',
+        publication_history: '',
+        medium_display: '',
     })
 
     const { id } = useParams()
@@ -24,7 +29,11 @@ const Details = () => {
                     title: detail.data.data.title,
                     image_id: detail.data.data.image_id,
                     exhibition_history: detail.data.data.exhibition_history,
-                    artist_title: detail.data.data.artist_title
+                    artist_title: detail.data.data.artist_title,
+                    dimensions: detail.data.data.dimensions,
+                    provenance_text: detail.data.data.provenance_text,
+                    publication_history: detail.data.data.publication_history,
+                    medium_display: detail.data.data.medium_display,
                 }) 
                 console.log(detail.data.data)           
             }
@@ -50,14 +59,15 @@ const Details = () => {
                 alt={details.image_id}
                 loading="lazy"
             />
-            {details.exhibition_history && <Box width='60%' pt="3rem" display="flex" flexDirection="column" alignItems="center">
-                <Typography variant="h6" fontWeight='600'>
-                    Exhibition History
-                </Typography>
+            {details.dimensions && <Box width='60%'display="flex" flexDirection="column" alignItems="center">
                 <Typography variant="body1" fontWeight='600' p="1.5rem">
-                    {details.exhibition_history}
+                    {details.dimensions}
                 </Typography>
             </Box>}
+            <Paragraph title="Exhibition History" content={details.exhibition_history} />
+            <Paragraph title="Provenance" content={details.provenance_text} />
+            <Paragraph title="Publication History" content={details.publication_history} />
+            <Paragraph title="Medium" content={details.medium_display} />
         </Box>
     )
 }
