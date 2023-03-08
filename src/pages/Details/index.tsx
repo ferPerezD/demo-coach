@@ -3,6 +3,9 @@ import { Box } from "@mui/system"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+// import type { RootState } from '../../redux/store'
+// import { useSelector, useDispatch } from 'react-redux'
+// import { changeData } from "../../redux/slice"
 
 
 
@@ -14,6 +17,8 @@ const Details = () => {
         exhibition_history: '',
         artist_title: ''
     })
+    // const data = useSelector((state: RootState) => state.someState.someData)
+    // const dispatch = useDispatch()
 
     const { id } = useParams()
     useEffect(() =>{
@@ -40,6 +45,8 @@ const Details = () => {
             <Typography align="center" fontWeight='600' pt='1.5rem' variant='h4' component='h1'>
                 {details.title}
             </Typography>
+            {/* <button onClick={() => dispatch(changeData('new data'))}>change data</button>
+            <h3>{data}</h3> */}
             <Typography align="center" variant='h6'>
                {`Author: ${details.artist_title || "Unkonwn"}`}
             </Typography>
