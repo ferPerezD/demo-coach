@@ -62,6 +62,7 @@ const NavBar = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
+            role="iconButton"
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -89,7 +90,7 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >  
-                 <MenuItem onClick={handleCloseNavMenu}>
+                 <MenuItem role="home-label-button" onClick={handleCloseNavMenu}>
                     <Link to='/' style={{textDecoration: 'none', color:'inherit'}}>
                         <Typography textAlign="center">Home</Typography>
                     </Link>
@@ -136,11 +137,12 @@ const NavBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, paddingLeft: '1.9rem' }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton role="menu-button" onClick={handleOpenUserMenu} sx={{ p: 0, paddingLeft: '1.9rem' }}>
+                <Avatar alt="Remy Sharp" data-testid="menu-avatar" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
+              role="menu-button"
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}

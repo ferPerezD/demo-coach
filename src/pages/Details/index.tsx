@@ -4,8 +4,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
-
-
 const Details = () => {
 
     const [details, setDetails] = useState({
@@ -37,17 +35,17 @@ const Details = () => {
 
     return(
         <Box sx={{display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems:"center", paddingTop: '20px'}}>
-            <Typography align="center" fontWeight='600' pt='1.5rem' variant='h4' component='h1'>
+            <Typography data-testid="title-detail" align="center" fontWeight='600' pt='1.5rem' variant='h4' component='h1'>
                 {details.title}
             </Typography>
             <Typography align="center" variant='h6'>
                {`Author: ${details.artist_title || "Unkonwn"}`}
             </Typography>
-            <img style={{paddingTop: '3rem'}}
+            <img style={{paddingTop: '3rem'}} role="img"
                 src={`https://www.artic.edu/iiif/2/${details.image_id}/full/843,/0/default.jpg?w=248&fit=crop&auto=format`}
                 srcSet={`https://www.artic.edu/iiif/2/${details.image_id}/full/843,/0/default.jpg?w=248&fit=crop&auto=format&dpr=2 2x`}
                 // src={`https://www.artic.edu/iiif/2/${details.image_id}/full/843,/0/default.jpg`} />
-                alt={details.image_id}
+                alt="No image available"
                 loading="lazy"
             />
             {details.exhibition_history && <Box width='60%' pt="3rem" display="flex" flexDirection="column" alignItems="center">
