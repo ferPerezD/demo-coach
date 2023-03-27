@@ -12,7 +12,7 @@ const Home = () => {
     }
     const [dataToRender, setDataToRender] = useState<DocId[]>([])
 
-    const fetchData = async (setDataToRender:React.Dispatch<React.SetStateAction<DocId[]>>) => {
+    const fetchData = async () => {
         try {
             const apiData = await axios.get(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
             const data = apiData.data.data.filter((element: DocId ) => element.image_id !== null)
@@ -26,7 +26,7 @@ const Home = () => {
 
    
     useEffect(() => {
-        fetchData(setDataToRender)
+        fetchData()
     },[fetchData]) 
     
     return (

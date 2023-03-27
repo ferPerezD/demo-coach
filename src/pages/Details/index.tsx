@@ -13,25 +13,27 @@ const Details = () => {
         artist_title: ''
     })
 
+    const fetchData = async () => {
+        try {
+            const detail = await axios.get(`https://api.artic.edu/api/v1/artworks/${id}`)
+            setDetails({
+                title: detail.data.data.title,
+                image_id: detail.data.data.image_id,
+                exhibition_history: detail.data.data.exhibition_history,
+                artist_title: detail.data.data.artist_title
+            }) 
+            console.log(detail.data.data)           
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
     const { id } = useParams()
     useEffect(() =>{
-        const fetchData = async () => {
-            try {
-                const detail = await axios.get(`https://api.artic.edu/api/v1/artworks/${id}`)
-                setDetails({
-                    title: detail.data.data.title,
-                    image_id: detail.data.data.image_id,
-                    exhibition_history: detail.data.data.exhibition_history,
-                    artist_title: detail.data.data.artist_title
-                }) 
-                console.log(detail.data.data)           
-            }
-            catch(err){
-                console.log(err)
-            }
-        }
+        
         fetchData()
-    }, [])
+    }, [fetchData])
 
     return(
         <Box sx={{display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems:"center", paddingTop: '20px'}}>

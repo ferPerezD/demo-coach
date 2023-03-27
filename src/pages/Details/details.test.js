@@ -56,4 +56,3 @@ describe('Details Page should be render as expected', () => {
         }, 500)
     })
 })
-dataMocked2
